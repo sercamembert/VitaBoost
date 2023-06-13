@@ -62,26 +62,29 @@ const Header = () => {
         className={
           !isScrolled
             ? "flex h-full w-1/2 items-center bg-primary pl-4 md:pl-16"
-            : "flex h-full w-1/2 items-center bg-white pl-4 md:pl-16 animate-[headerAnimation_0.7s_ease-in-out]"
+            : "flex h-full w-1/2 items-center bg-gray-100 pl-4 md:pl-16 animate-[headerAnimation_0.7s_ease-in-out]"
         }
       >
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
       </div>
       <div
         className={
           !isScrolled
             ? "flex h-full w-1/2 items-center justify-end bg-primary pr-4 lg:bg-white"
-            : "flex h-full w-1/2 items-center justify-end bg-white pr-4 lg:bg-white animate-[headerAnimation_0.7s_ease-in-out]"
+            : "flex h-full w-1/2 items-center justify-end bg-gray-100 pr-4 lg:bg-gray-100 animate-[headerAnimation_0.7s_ease-in-out]"
         }
       >
         <HeaderIcons
           onToggleSidebar={handleToggleSidebar}
           isHamburgerOpen={isHamburgerOpen}
           setIsHamburgerOpen={setIsHamburgerOpen}
+          isScrolled={isScrolled}
         />
       </div>
       {isBlackVisible && <BlackOverlay handlePageClick={handlePageClick} />}
-      <HeaderLinks />
+      <HeaderLinks isScrolled={isScrolled} />
       <Sidebar
         isVisible={isSidebarVisible}
         onToggleSidebar={handleToggleSidebar}
@@ -103,6 +106,7 @@ const HeaderIcons = ({
   onToggleSidebar,
   isHamburgerOpen,
   setIsHamburgerOpen,
+  isScrolled,
 }) => {
   const handleClickMenu = () => {
     onToggleSidebar();
@@ -110,20 +114,39 @@ const HeaderIcons = ({
 
   return (
     <div className="flex w-fit gap-2">
-      <div className="flex items-center">
+      <div
+        className={
+          !isScrolled
+            ? "flex items-center"
+            : "flex items-center animate-[headerAnimation_0.7s_ease-in-out]"
+        }
+      >
         <PersonOutlineOutlinedIcon
           sx={{ fontSize: 38 }}
           className="hover:cursor-pointer"
+          tabIndex="0"
         />
       </div>
-      <div className="flex items-center">
-        <Badge badgeContent={1} color="error" className="hover:cursor-pointer">
+      <div
+        className={
+          !isScrolled
+            ? "flex items-center"
+            : "flex items-center animate-[headerAnimation_0.7s_ease-in-out]"
+        }
+      >
+        <Badge
+          badgeContent={1}
+          color="error"
+          className="hover:cursor-pointer"
+          tabIndex="0"
+        >
           <ShoppingBagOutlinedIcon sx={{ fontSize: 34 }} />
         </Badge>
       </div>
       <div
         className="ml-2 rounded-md bg-green p-1 hover:cursor-pointer z-50"
         onClick={handleClickMenu}
+        tabIndex="0"
       >
         <Hamburger
           size={30}
@@ -135,27 +158,33 @@ const HeaderIcons = ({
   );
 };
 
-const HeaderLinks = () => {
+const HeaderLinks = ({ isScrolled }) => {
   return (
     <div
-      className="absolute left-1/2 hidden h-full translate-x-[-50%] content-center items-center gap-8 
-    font-primary text-2xl font-medium lg:flex"
+      className={
+        !isScrolled
+          ? "absolute left-1/2 hidden h-full translate-x-[-50%] content-center items-center gap-8 font-primary text-2xl font-medium lg:flex"
+          : "absolute left-1/2 hidden h-full translate-x-[-50%] content-center items-center gap-8 font-primary text-2xl font-medium lg:flex animate-[linksScroll_0.7s_ease-in-out]"
+      }
     >
       <Link
         to="/"
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany"
+        tabIndex="0"
       >
         home
       </Link>
       <Link
         to="/contact"
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany"
+        tabIndex="0"
       >
         contact
       </Link>
       <Link
         to="/#products"
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany"
+        tabIndex="0"
       >
         products
       </Link>

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import preWorkoutImgSmall from "../../../img/products/pre-workout/pre-workout-small.png";
 import preWorkoutImgMedium from "../../../img/products/pre-workout/pre-workout-medium.png";
 import preWorkoutImgMedium2 from "../../../img/products/pre-workout/pre-workout-medium2.png";
@@ -11,7 +10,7 @@ import { SidebarContext } from "../../../contexts/SidebarContext";
 const PreWorkoutSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
   return (
-    <div className="flex h-full lg:items-center w-full">
+    <section className="flex h-full lg:items-center w-full">
       <div className=" w-1/2 section bg-primary -z-20"></div>
       <div className=" w-1/2 section bg-primary lg:bg-white -z-20"></div>
       <picture className="absolute w-full flex justify-center pointer-events-none items-center">
@@ -38,7 +37,7 @@ const PreWorkoutSection = () => {
           <DiscoverButton />
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

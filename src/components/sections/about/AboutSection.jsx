@@ -6,7 +6,7 @@ import AboutButton from "../../buttons/AboutButton";
 
 const AboutSection = () => {
   return (
-    <div className="h-auto  flex flex-col lg:flex-row items-center p-6 gap-4 justify-center lg:gap-16">
+    <div className="h-auto lg:h-screen  flex flex-col lg:flex-row items-center p-6 gap-4 justify-center lg:gap-16">
       <picture className="w-auto flex justify-center">
         <source srcSet={logoIconImgLarge} media="(min-width: 1024px)" />
         <img src={logoIconImgMedium} alt="VitaBoost" draggable="false" />
