@@ -29,6 +29,10 @@ export default {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        linksScroll: {
+          "0%": { transform: "translateY(-100%) translateX(-50%)" },
+          "100%": { transform: "translateY(0) translateX(-50%)" },
+        },
       },
     },
     fontFamily: {
