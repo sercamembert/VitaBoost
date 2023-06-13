@@ -10,10 +10,10 @@ import { SidebarContext } from "../../../contexts/SidebarContext";
 const PreWorkoutSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
   return (
-    <section className="flex h-full lg:items-center w-full">
-      <div className=" w-1/2 section bg-primary -z-20"></div>
-      <div className=" w-1/2 section bg-primary lg:bg-white -z-20"></div>
-      <picture className="absolute w-full flex justify-center pointer-events-none items-center">
+    <section className="flex h-full w-full lg:items-center">
+      <div className=" section -z-20 w-1/2 bg-primary"></div>
+      <div className=" section -z-20 w-1/2 bg-primary lg:bg-white"></div>
+      <picture className="pointer-events-none absolute flex w-full items-center justify-center">
         <source srcSet={preWorkoutImgLarge} media="(min-width: 1536px)" />
         <source srcSet={preWorkoutImgMedium} media="(min-width: 1024px)" />
         <source srcSet={preWorkoutImgMedium2} media="(min-width: 640px)" />
@@ -27,10 +27,10 @@ const PreWorkoutSection = () => {
       <div
         className={isBlackVisible ? "section-text-open" : "section-text-close"}
       >
-        <span className=" font-special text-stroke text-4xl text-yellow lg:text-6xl text-center lg:text-left ">
+        <span className=" text-stroke text-center font-special text-4xl text-yellow lg:text-left lg:text-6xl ">
           New Formula
         </span>
-        <span className="font-primary font-semibold text-white text-2xl lg:text-4xl text-center lg:text-left lg:w-96 2xl:w-[500px] sm:w-72">
+        <span className="text-center font-primary text-2xl font-semibold text-white sm:w-72 lg:w-96 lg:text-left lg:text-4xl 2xl:w-[500px]">
           Our best pre-workout, now even more invigorating!
         </span>
         <Link to="/pre-workout" className="-z-1">

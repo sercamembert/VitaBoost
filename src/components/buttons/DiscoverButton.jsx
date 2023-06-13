@@ -3,7 +3,7 @@ import React from "react";
 
 const DiscoverButton = () => {
   return (
-    <div className="bg-green hover:poiter font-primary text-center w-36 lg:w-52 p-2 rounded-md text-lg font-medium cursor-pointer hover:animate-pulse">
+    <div className="hover:poiter w-36 cursor-pointer rounded-md bg-green p-2 text-center font-primary text-lg font-medium hover:animate-pulse lg:w-52">
       Discover Now
     </div>
   );

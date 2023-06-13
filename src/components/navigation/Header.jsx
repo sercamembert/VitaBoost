@@ -62,7 +62,7 @@ const Header = () => {
         className={
           !isScrolled
             ? "flex h-full w-1/2 items-center bg-primary pl-4 md:pl-16"
-            : "flex h-full w-1/2 items-center bg-gray-100 pl-4 md:pl-16 animate-[headerAnimation_0.7s_ease-in-out]"
+            : "flex h-full w-1/2 animate-[headerAnimation_0.7s_ease-in-out] items-center bg-gray-100 pl-4 md:pl-16"
         }
       >
         <Link to="/">
@@ -73,7 +73,7 @@ const Header = () => {
         className={
           !isScrolled
             ? "flex h-full w-1/2 items-center justify-end bg-primary pr-4 lg:bg-white"
-            : "flex h-full w-1/2 items-center justify-end bg-gray-100 pr-4 lg:bg-gray-100 animate-[headerAnimation_0.7s_ease-in-out]"
+            : "flex h-full w-1/2 animate-[headerAnimation_0.7s_ease-in-out] items-center justify-end bg-gray-100 pr-4 lg:bg-gray-100"
         }
       >
         <HeaderIcons
@@ -96,7 +96,7 @@ const Header = () => {
 const BlackOverlay = React.memo(({ handlePageClick }) => {
   return (
     <div
-      className="fixed top-0 left-0 right-0 bottom-0 z-30 bg-black opacity-50 ease-in"
+      className="fixed bottom-0 left-0 right-0 top-0 z-30 bg-black opacity-50 ease-in"
       onClick={handlePageClick}
     ></div>
   );
@@ -118,7 +118,7 @@ const HeaderIcons = ({
         className={
           !isScrolled
             ? "flex items-center"
-            : "flex items-center animate-[headerAnimation_0.7s_ease-in-out]"
+            : "flex animate-[headerAnimation_0.7s_ease-in-out] items-center"
         }
       >
         <PersonOutlineOutlinedIcon
@@ -131,7 +131,7 @@ const HeaderIcons = ({
         className={
           !isScrolled
             ? "flex items-center"
-            : "flex items-center animate-[headerAnimation_0.7s_ease-in-out]"
+            : "flex animate-[headerAnimation_0.7s_ease-in-out] items-center"
         }
       >
         <Badge
@@ -144,7 +144,7 @@ const HeaderIcons = ({
         </Badge>
       </div>
       <div
-        className="ml-2 rounded-md bg-green p-1 hover:cursor-pointer z-50"
+        className="z-50 ml-2 rounded-md bg-green p-1 hover:cursor-pointer"
         onClick={handleClickMenu}
         tabIndex="0"
       >
@@ -164,7 +164,7 @@ const HeaderLinks = ({ isScrolled }) => {
       className={
         !isScrolled
           ? "absolute left-1/2 hidden h-full translate-x-[-50%] content-center items-center gap-8 font-primary text-2xl font-medium lg:flex"
-          : "absolute left-1/2 hidden h-full translate-x-[-50%] content-center items-center gap-8 font-primary text-2xl font-medium lg:flex animate-[linksScroll_0.7s_ease-in-out]"
+          : "absolute left-1/2 hidden h-full translate-x-[-50%] animate-[linksScroll_0.7s_ease-in-out] content-center items-center gap-8 font-primary text-2xl font-medium lg:flex"
       }
     >
       <Link

@@ -15,6 +15,7 @@ export default {
         red: "#E54C37",
         tiffanyBlur: "#84DCC6",
         aboutGrey: "#999191",
+        invest: "#075985",
       },
       keyframes: {
         sidebar: {

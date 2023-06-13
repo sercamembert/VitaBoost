@@ -8,23 +8,23 @@ import { SidebarContext } from "../../../contexts/SidebarContext";
 const ProteinSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
   return (
-    <section className="flex h-[690px] lg:items-center w-full flex-col xl:flex-row lg:h-[600px] xl:h-[650px]">
-      <div className="w-full xl:w-1/2 lg:h-full">
+    <section className="flex h-auto w-full flex-col lg:items-center xl:h-[650px] xl:flex-row">
+      <div className="w-full lg:h-full xl:w-1/2">
         <img
           src="https://i.shgcdn.com/c5551027-e3a2-4ab5-bde3-1588188e2680/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
           alt=""
-          className="w-full h-full"
+          className="h-full w-full"
         />
       </div>
-      <div className="w-full xl:w-1/2 h-auto bg-wheyBg lg:h-full flex justify-center items-center">
+      <div className="flex h-auto w-full items-center justify-center bg-wheyBg lg:h-full xl:w-1/2">
         <div
           className={
             isBlackVisible
-              ? "flex flex-col gap-2 items-center lg:items-start z-10 justify-center lg:w-full pb-6"
-              : "flex flex-col gap-2 items-center lg:items-start justify-center lg:w-full pb-6"
+              ? "z-10 flex flex-col items-center justify-center gap-2 pb-6 lg:w-full lg:items-start"
+              : "flex flex-col items-center justify-center gap-2 pb-6 lg:w-full lg:items-start"
           }
         >
-          <picture className="w-full flex justify-center pointer-events-none items-center">
+          <picture className="pointer-events-none flex w-full items-center justify-center">
             <source srcSet={proteinImgMedium2} media="(min-width: 1024px)" />
             <img
               src={proteinImgSmall}
@@ -32,11 +32,11 @@ const ProteinSection = () => {
               draggable="false"
             />
           </picture>
-          <div className="flex flex-col w-full justify-center items-center gap-2">
-            <span className="font-special text-stroke text-4xl text-red text-center lg:text-left">
+          <div className="flex w-full flex-col items-center justify-center gap-2">
+            <span className="text-stroke text-center font-special text-4xl text-red lg:text-left">
               Pure Whey
             </span>
-            <span className="font-primary font-semibold text-white text-2xl lg:text-lg text-center  sm:w-96 xl:w-96">
+            <span className="text-center font-primary text-2xl font-semibold text-white sm:w-96  lg:text-lg xl:w-96">
               Our pure whey - Now with enhanced potency, providing optimal
               muscle recovery and growth!
             </span>

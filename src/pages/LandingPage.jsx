@@ -3,6 +3,7 @@ import CreatineSection from "../components/sections/main/CreatineSection";
 import PreWorkoutSection from "../components/sections/main/PreWorkoutSection";
 import AboutSection from "../components/sections/about/AboutSection";
 import ProteinSection from "../components/sections/main/ProteinSection";
+import InvestSection from "../components/sections/about/InvestSection";
 
 const LandingPage = () => {
   return (
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <PreWorkoutSection />
       <AboutSection />
       <ProteinSection />
+      <InvestSection />
     </div>
   );
 };
