@@ -1,7 +1,7 @@
 const Newsletter = () => {
   return (
     <section className="bg-white dark:bg-gray-900">
-      <div className="mx-auto max-w-screen-xl px-4 py-24 py-8 lg:px-6 lg:py-16">
+      <div className="mx-auto max-w-screen-xl px-4 py-24 lg:px-6 lg:py-16">
         <div className="mx-auto max-w-screen-md sm:text-center">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Sign up for our newsletter
@@ -40,7 +40,7 @@ const Newsletter = () => {
                 />
               </div>
               <div>
-                <button className="border-primary-600 dark:focus:ring-primary-800 w-full cursor-pointer rounded-lg border bg-primary px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary focus:ring-4 focus:ring-primary dark:bg-primary dark:hover:bg-primary sm:rounded-none sm:rounded-r-lg">
+                <button className="w-full cursor-pointer rounded-lg border bg-primary px-5 py-3 text-center text-sm font-medium text-white hover:animate-pulse sm:rounded-none sm:rounded-r-lg">
                   Subscribe
                 </button>
               </div>

@@ -5,6 +5,7 @@ import ProteinSection from "../components/sections/main/ProteinSection";
 import InvestSection from "../components/sections/about/InvestSection";
 import Newsletter from "../components/newsletter/Newsletter";
 import ProductsSection from "../components/sections/ProductsSection";
+import Team from "../components/sections/Team";
 
 const LandingPage = () => {
   return (
@@ -15,6 +16,7 @@ const LandingPage = () => {
       <ProteinSection />
       <CreatineSection />
       <ProductsSection />
+      <Team />
       <Newsletter />
     </div>
   );
