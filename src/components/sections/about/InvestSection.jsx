@@ -9,7 +9,7 @@ const InvestSection = () => {
   return (
     <section className="flex h-auto flex-col lg:flex-row">
       <div className="flex h-full w-auto flex-col items-center justify-center gap-4 bg-green p-6 lg:h-[500px] lg:w-1/2 xl:h-[600px] 2xl:h-[650px]">
-        <h1 className="text-center text-4xl font-bold text-invest md:w-[70%] lg:text-left xl:w-[500px]">
+        <h1 className="text-4xl font-bold text-invest md:w-[70%] lg:text-left xl:w-[500px]">
           Invest in Your Health with VitaBoost
         </h1>
         <p className="text-2xl font-semibold text-white md:w-[70%] xl:w-[500px]">
