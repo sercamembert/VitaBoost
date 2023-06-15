@@ -16,7 +16,7 @@ const ProteinSection = () => {
           className="h-full w-full"
         />
       </div>
-      <div className="flex h-auto w-full items-center justify-center bg-wheyBg pb-24 pt-24 lg:h-full xl:w-1/2">
+      <div className="flex h-auto w-full items-center justify-center bg-wheyBg py-24 lg:h-full xl:w-1/2">
         <div
           className={
             isBlackVisible
