@@ -11,8 +11,8 @@ const PreWorkoutSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
   return (
     <section className="flex h-full w-full lg:items-center">
-      <div className=" section -z-20 w-1/2 bg-primary"></div>
-      <div className=" section -z-20 w-1/2 bg-primary lg:bg-white"></div>
+      <div className=" section  w-1/2 bg-primary"></div>
+      <div className=" section  w-1/2 bg-primary lg:bg-white"></div>
       <picture className="pointer-events-none absolute flex w-full items-center justify-center">
         <source srcSet={preWorkoutImgLarge} media="(min-width: 1536px)" />
         <source srcSet={preWorkoutImgMedium} media="(min-width: 1024px)" />
@@ -21,7 +21,7 @@ const PreWorkoutSection = () => {
           src={preWorkoutImgSmall}
           alt="Best pre-workout VitaBoost"
           draggable="false"
-          className="-z-10"
+          className=""
         />
       </picture>
       <div

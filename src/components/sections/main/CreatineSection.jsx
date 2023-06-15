@@ -9,12 +9,12 @@ const creatineSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
   return (
     <section className="flex h-auto w-full flex-col lg:items-center xl:h-[650px] xl:flex-row">
-      <div className="flex h-auto w-full items-center justify-center bg-wheyBg lg:h-full xl:w-1/2">
+      <div className="flex h-auto w-full items-center justify-center bg-wheyBg pb-12 lg:h-full xl:w-1/2 xl:bg-primary">
         <div
           className={
             isBlackVisible
-              ? "z-10 flex flex-col items-center justify-center gap-2 pb-6 lg:w-full lg:items-start"
-              : "flex flex-col items-center justify-center gap-2 pb-6 lg:w-full lg:items-start"
+              ? "z-10 flex flex-col items-center justify-center gap-2 p-6 pb-6 lg:w-full lg:items-start"
+              : "flex flex-col items-center justify-center gap-2 p-6 pb-6 lg:w-full lg:items-start"
           }
         >
           <picture className="pointer-events-none flex w-full items-center justify-center">

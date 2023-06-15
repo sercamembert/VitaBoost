@@ -7,8 +7,8 @@ import vitaminImg from "../../../img/vitamins-icon/vitamins-icon.png";
 
 const InvestSection = () => {
   return (
-    <section className="flex h-auto flex-col lg:flex-row">
-      <div className="flex h-full w-auto flex-col items-center justify-center gap-4 bg-green p-6 lg:h-[500px] lg:w-1/2 xl:h-[600px] 2xl:h-[650px]">
+    <section className="flex h-auto flex-col lg:flex-row ">
+      <div className="flex h-full w-auto flex-col items-center justify-center gap-4 bg-green p-6 pb-24 pt-24 lg:h-[500px] lg:w-1/2 xl:h-[600px] 2xl:h-[650px] ">
         <h1 className="text-4xl font-bold text-invest md:w-[70%] lg:text-left xl:w-[500px]">
           Invest in Your Health with VitaBoost
         </h1>
@@ -22,7 +22,7 @@ const InvestSection = () => {
           <img src={vitaminImg} alt="Consume supplements become stronger" />
         </div>
       </div>
-      <picture className="w-auto lg:w-1/2">
+      <picture className="hidden w-auto lg:block lg:w-1/2">
         <source srcSet={manImgLarge} media="(min-width: 1536px)" />
         <img
           src={manImgLarge}

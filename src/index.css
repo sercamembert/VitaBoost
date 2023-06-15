@@ -38,7 +38,7 @@
     @apply absolute top-[360px] flex w-full flex-col items-center justify-center  gap-2 p-6 sm:top-[440px] lg:left-0 lg:top-[300px] lg:-translate-x-0 lg:items-start xl:pl-20 3xl:pl-36;
   }
   .section-text-open {
-    @apply absolute top-[360px] z-[-1] flex w-full flex-col items-center  justify-center gap-2 p-6 sm:top-[440px] lg:left-0 lg:top-[300px] lg:-translate-x-0 lg:items-start xl:pl-20 3xl:pl-36;
+    @apply absolute top-[360px]  flex w-full flex-col items-center  justify-center gap-2 p-6 sm:top-[440px] lg:left-0 lg:top-[300px] lg:-translate-x-0 lg:items-start xl:pl-20 3xl:pl-36;
   }
 }
 

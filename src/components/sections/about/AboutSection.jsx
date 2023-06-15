@@ -6,7 +6,7 @@ import ButtonBlue from "../../buttons/ButtonBlue";
 
 const AboutSection = () => {
   return (
-    <div className="flex h-auto  flex-col items-center justify-center gap-4 p-6 lg:h-screen lg:flex-row lg:gap-16">
+    <div className="flex h-auto  flex-col items-center justify-center gap-4 p-6 pb-24 pt-24 lg:h-screen lg:flex-row lg:gap-16">
       <picture className="flex w-auto justify-center">
         <source srcSet={logoIconImgLarge} media="(min-width: 1024px)" />
         <img src={logoIconImgMedium} alt="VitaBoost" draggable="false" />

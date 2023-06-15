@@ -11,8 +11,8 @@ const LandingPage = () => {
     <div className="mt-20">
       <PreWorkoutSection />
       <AboutSection />
-      <ProteinSection />
       <InvestSection />
+      <ProteinSection />
       <CreatineSection />
       <Newsletter />
     </div>
