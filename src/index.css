@@ -4,10 +4,10 @@
 
 @layer sidebar {
   .sidebar {
-    @apply fixed right-0 z-40 h-screen w-screen animate-[sidebar_0.2s_ease-in-out] bg-white md:w-96;
+    @apply fixed right-0 z-40 h-screen w-screen animate-[sidebar_0.2s_ease-in-out] bg-white dark:bg-dark md:w-96;
   }
   .sidebar-close {
-    @apply fixed -right-full z-40 h-screen w-screen animate-[sidebarClose_0.2s_ease-in-out] bg-white md:w-96;
+    @apply fixed -right-full z-40 h-screen w-screen animate-[sidebarClose_0.2s_ease-in-out] bg-white dark:bg-dark md:w-96;
   }
 }
 
@@ -48,5 +48,15 @@
   }
   .header--scrolled {
     @apply fixed top-0 z-30 flex h-20 w-full animate-[headerAnimation_0.7s_ease-in-out];
+  }
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+@layer {
+  body {
+    @apply dark:bg-dark dark:text-white;
   }
 }

@@ -4,6 +4,7 @@ import manImgMedium from "../../../img/man/man-medium.png";
 import manImgLarge from "../../../img/man/man-large.png";
 import ButtonBlue from "../../buttons/ButtonBlue";
 import vitaminImg from "../../../img/vitamins-icon/vitamins-icon.png";
+import { Link } from "react-router-dom";
 
 const InvestSection = () => {
   return (
@@ -18,7 +19,14 @@ const InvestSection = () => {
           support your body and mind. Invest in your health today.
         </p>
         <div className="flex gap-4 md:w-[70%] xl:w-[500px]">
-          <ButtonBlue text="Check Offer" />
+          <Link
+            to="/#products"
+            onClick={() => {
+              window.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            <ButtonBlue text="Check Offer" />
+          </Link>
           <img src={vitaminImg} alt="Consume supplements become stronger" />
         </div>
       </div>

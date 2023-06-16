@@ -2,6 +2,7 @@
 export default {
   mode: "jit",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -16,6 +17,7 @@ export default {
         tiffanyBlur: "#84DCC6",
         aboutGrey: "#999191",
         invest: "#075985",
+        dark: "#1A1C1E",
       },
       keyframes: {
         sidebar: {

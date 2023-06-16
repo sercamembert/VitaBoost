@@ -12,7 +12,7 @@ const PreWorkoutSection = () => {
   return (
     <section className="flex h-full w-full lg:items-center">
       <div className=" section  w-1/2 bg-primary"></div>
-      <div className=" section  w-1/2 bg-primary lg:bg-white"></div>
+      <div className=" section  w-1/2 bg-primary lg:bg-white dark:lg:bg-dark"></div>
       <picture className="pointer-events-none absolute flex w-full items-center justify-center">
         <source srcSet={preWorkoutImgLarge} media="(min-width: 1536px)" />
         <source srcSet={preWorkoutImgMedium} media="(min-width: 1024px)" />

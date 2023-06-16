@@ -11,6 +11,7 @@ import Sidebar from "./Sidebar";
 import Hamburger from "hamburger-react";
 import { useContext } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
+import Switcher from "../../events/Switcher";
 
 const Header = () => {
   const { isBlackVisible, setIsBlackVisible } = useContext(SidebarContext);
@@ -62,7 +63,7 @@ const Header = () => {
         className={
           !isScrolled
             ? "flex h-full w-1/2 items-center bg-primary pl-4 md:pl-16"
-            : "flex h-full w-1/2 animate-[headerAnimation_0.7s_ease-in-out] items-center bg-gray-100 pl-4 md:pl-16"
+            : "flex h-full w-1/2 animate-[headerAnimation_0.7s_ease-in-out] items-center bg-gray-100 pl-4 dark:bg-dark md:pl-16"
         }
       >
         <Link to="/">
@@ -72,8 +73,8 @@ const Header = () => {
       <div
         className={
           !isScrolled
-            ? "flex h-full w-1/2 items-center justify-end bg-primary pr-4 lg:bg-white"
-            : "flex h-full w-1/2 animate-[headerAnimation_0.7s_ease-in-out] items-center justify-end bg-gray-100 pr-4 lg:bg-gray-100"
+            ? "flex h-full w-1/2 items-center justify-end bg-primary pr-4 lg:bg-white dark:lg:bg-dark"
+            : "flex h-full w-1/2 animate-[headerAnimation_0.7s_ease-in-out] items-center justify-end bg-gray-100 pr-4 dark:bg-dark lg:bg-gray-100"
         }
       >
         <HeaderIcons
@@ -123,7 +124,7 @@ const HeaderIcons = ({
       >
         <PersonOutlineOutlinedIcon
           sx={{ fontSize: 38 }}
-          className="hover:cursor-pointer"
+          className="hover:cursor-pointer dark:text-white"
           tabIndex="0"
         />
       </div>
@@ -137,11 +138,20 @@ const HeaderIcons = ({
         <Badge
           badgeContent={1}
           color="error"
-          className="hover:cursor-pointer"
+          className="hover:cursor-pointer dark:text-white"
           tabIndex="0"
         >
           <ShoppingBagOutlinedIcon sx={{ fontSize: 34 }} />
         </Badge>
+      </div>
+      <div
+        className={
+          !isScrolled
+            ? "flex items-center px-1"
+            : "flex animate-[headerAnimation_0.7s_ease-in-out] items-center"
+        }
+      >
+        <Switcher />
       </div>
       <div
         className="z-50 ml-2 rounded-md bg-green p-1 hover:cursor-pointer"
@@ -169,21 +179,24 @@ const HeaderLinks = ({ isScrolled }) => {
     >
       <Link
         to="/"
-        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany"
+        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
         tabIndex="0"
       >
         home
       </Link>
       <Link
         to="/contact"
-        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany"
+        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
         tabIndex="0"
       >
         contact
       </Link>
       <Link
         to="/#products"
-        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany"
+        onClick={() => {
+          window.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
         tabIndex="0"
       >
         products

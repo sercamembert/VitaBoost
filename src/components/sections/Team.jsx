@@ -3,7 +3,7 @@ import liamImg from "../../img/team/carter.jpg";
 
 const Team = () => {
   return (
-    <div className="container mx-auto my-24 p-6">
+    <div className="container mx-auto mt-12 p-6">
       <section className="mb-32 text-center">
         <h2 className="mb-12 font-primary text-3xl font-bold">
           VitaBoost Team
@@ -37,12 +37,10 @@ const Team = () => {
                   Creative Director
                 </h6>
                 <p className="font-primary">
-                  Max is a visionary leader who spearheads the creation of
-                  unique and compelling packaging and marketing campaigns for
-                  the VitaBoost brand. His creativity and ability to think
-                  outside the box captivate customers, making VitaBoost stand
-                  out on store shelves. Max understands how to tap into
-                  consumers emotions and turn them into loyal brand advocates.
+                  Max, a visionary leader, creates unique packaging and
+                  marketing campaigns for VitaBoost. His creativity captivates
+                  customers, making VitaBoost stand out. He taps into consumer
+                  emotions and turns them into loyal advocates.
                 </p>
               </div>
             </div>
@@ -76,13 +74,11 @@ const Team = () => {
                 </h6>
 
                 <p className="font-primary">
-                  Ava is a passionate advocate of a healthy lifestyle and has
-                  extensive knowledge in supplementation. As a product expert,
-                  her role is to ensure the quality and effectiveness of
-                  VitaBoost supplements. Ava closely follows the latest trends
-                  and scientific research to ensure that VitaBoost offers
-                  products that meet customers expectations and provide real
-                  benefits to their health and well-being.
+                  Ava, a passionate advocate of a healthy lifestyle and
+                  supplement expert, ensures the quality and effectiveness of
+                  VitaBoost's products. She stays updated on trends and research
+                  to meet customer expectations and provide real health
+                  benefits.
                 </p>
               </div>
             </div>
@@ -112,12 +108,11 @@ const Team = () => {
                   Sales Specialist
                 </h6>
                 <p className="font-primary">
-                  Liam is an invaluable member of the team, effectively managing
-                  the sales of VitaBoost products. His strong communication
-                  skills, empathy, and expertise in supplements allow him to
-                  build strong relationships with customers and drive sales.
-                  Liam is dedicated to understanding needs and providing them
-                  with personalized solutions to enhance their well-being
+                  Liam effectively manages VitaBoost's product sales through
+                  strong communication, empathy, and supplement expertise. He
+                  builds customer relationships and drives sales by
+                  understanding their needs and offering personalized well-being
+                  solutions.
                 </p>
               </div>
             </div>
