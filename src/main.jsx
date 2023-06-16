@@ -12,6 +12,8 @@ import Header from "../src/components/navigation/Header";
 import Footer from "../src/components/footer/Footer";
 import ContactPage from "../src/pages/ContactPage";
 import { SidebarProvider } from "./contexts/SidebarContext";
+import Login from "./pages/user/Login";
+import Signup from "./pages/user/Signup";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,26 @@ const router = createBrowserRouter([
         <Header />
         <LandingPage />
         <Footer />
+      </>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: (
+      <>
+        <Header />
+        <Login />
+      </>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/signup",
+    element: (
+      <>
+        <Header />
+        <Signup />
       </>
     ),
     errorElement: <ErrorPage />,

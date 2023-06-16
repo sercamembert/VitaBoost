@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../logo/Logo";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -18,6 +18,8 @@ const Header = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const handleToggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
@@ -122,19 +124,6 @@ const HeaderIcons = ({
             : "flex animate-[headerAnimation_0.7s_ease-in-out] items-center"
         }
       >
-        <PersonOutlineOutlinedIcon
-          sx={{ fontSize: 38 }}
-          className="hover:cursor-pointer dark:text-white"
-          tabIndex="0"
-        />
-      </div>
-      <div
-        className={
-          !isScrolled
-            ? "flex items-center"
-            : "flex animate-[headerAnimation_0.7s_ease-in-out] items-center"
-        }
-      >
         <Badge
           badgeContent={1}
           color="error"
@@ -143,6 +132,21 @@ const HeaderIcons = ({
         >
           <ShoppingBagOutlinedIcon sx={{ fontSize: 34 }} />
         </Badge>
+      </div>
+      <div
+        className={
+          !isScrolled
+            ? "flex items-center"
+            : "flex animate-[headerAnimation_0.7s_ease-in-out] items-center"
+        }
+      >
+        <Link to="/login">
+          <PersonOutlineOutlinedIcon
+            sx={{ fontSize: 38 }}
+            className="hover:cursor-pointer dark:text-white"
+            tabIndex="0"
+          />
+        </Link>
       </div>
       <div
         className={
