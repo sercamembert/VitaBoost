@@ -188,13 +188,7 @@ const HeaderLinks = ({ isScrolled }) => {
       >
         home
       </Link>
-      <Link
-        to="/contact"
-        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
-        tabIndex="0"
-      >
-        contact
-      </Link>
+
       <Link
         to="/#products"
         onClick={() => {
@@ -204,6 +198,13 @@ const HeaderLinks = ({ isScrolled }) => {
         tabIndex="0"
       >
         products
+      </Link>
+      <Link
+        to="/contact"
+        className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
+        tabIndex="0"
+      >
+        contact
       </Link>
     </div>
   );
