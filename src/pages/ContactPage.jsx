@@ -8,7 +8,7 @@ const ContactPage = () => {
               Contact us
             </h1>
             <p className="mt-1 text-gray-600 dark:text-gray-400">
-              We d love to talk about how we can help you.
+              We love to talk about how we can help you.
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ const ContactPage = () => {
               <div className="mt-6 grid">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-x-3 rounded-md border border-transparent bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 lg:text-base"
+                  className="inline-flex items-center justify-center gap-x-3 rounded-md border border-transparent bg-primary px-4 py-3 text-center text-sm font-medium text-white transition hover:animate-pulse hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 lg:text-base"
                 >
                   Send inquiry
                 </button>
@@ -113,7 +113,7 @@ const ContactPage = () => {
 
               <div className="mt-3 text-center">
                 <p className="text-sm text-gray-500">
-                  We ll get back to you in 1-2 business days.
+                  We will get back to you in 1-2 business days.
                 </p>
               </div>
             </form>

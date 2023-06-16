@@ -60,3 +60,18 @@ body {
     @apply dark:bg-dark dark:text-white;
   }
 }
+
+@layer {
+  * {
+    @apply font-primary;
+  }
+}
+
+@layer {
+  .selectImg {
+    @apply mb-3 aspect-square h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center;
+  }
+  .notselected-img {
+    @apply mb-3 aspect-square h-20 overflow-hidden rounded-lg border-2  text-center;
+  }
+}
