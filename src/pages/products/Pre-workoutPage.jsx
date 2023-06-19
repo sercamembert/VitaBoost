@@ -185,7 +185,7 @@ const PreWorkoutPage = () => {
                   </svg>
                 </div>
                 <p className="ml-2 text-sm font-medium text-gray-500">
-                  936 Reviews
+                  587 Reviews
                 </p>
               </div>
 
@@ -300,7 +300,7 @@ const PreWorkoutPage = () => {
                   >
                     Reviews
                     <span className="ml-2 block rounded-full bg-primary px-2 py-px text-xs font-bold text-gray-100">
-                      936
+                      587
                     </span>
                   </span>
                 </nav>
