@@ -232,7 +232,7 @@ const ProteinPage = () => {
               </div>
               {section == "desc" ? (
                 <div className="mt-8 flow-root font-primary sm:mt-12">
-                  <h1 className="text-3xl font-bold">
+                  <h1 className="mt-4 text-3xl font-bold">
                     VitaBoost 100% Pure Whey
                   </h1>
                   <p className="mt-4">
@@ -260,7 +260,9 @@ const ProteinPage = () => {
                     source of BCAAs and EAAs with strong anti-catabolic
                     properties.
                   </p>
-                  <h1 className="text-3xl font-bold">Usage Instructions:</h1>
+                  <h1 className="mt-4 text-3xl font-bold">
+                    Usage Instructions:
+                  </h1>
                   <p className="mt-4">
                     Mix 1 serving (28g = approximately 2 heaping tablespoons) of
                     100% Pure Whey with 250ml of water, preferably using a
@@ -270,8 +272,14 @@ const ProteinPage = () => {
                     days, consume 1 serving in the morning and 1 serving in the
                     evening.
                   </p>
-                  <h1 className="text-3xl font-bold">Nutrition Information:</h1>
-                  <img src={proteinLabelImg} alt="nutrition info" />
+                  <h1 className="mt-4 text-3xl font-bold">
+                    Nutrition Information:
+                  </h1>
+                  <img
+                    src={proteinLabelImg}
+                    alt="nutrition info"
+                    className="mt-4"
+                  />
                 </div>
               ) : (
                 <div className="mt-8 flow-root font-primary sm:mt-12">
