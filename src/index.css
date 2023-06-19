@@ -75,3 +75,12 @@ body {
     @apply mb-3 aspect-square h-20 overflow-hidden rounded-lg border-2  text-center;
   }
 }
+
+@layer {
+  .product-img {
+    @apply h-full w-full max-w-full object-cover;
+  }
+  .product-img-animation {
+    @apply h-full w-full max-w-full animate-[headerAnimation_0.7s_ease-in-out] object-cover;
+  }
+}

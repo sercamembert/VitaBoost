@@ -8,6 +8,18 @@ import { useState } from "react";
 const CreatinePage = () => {
   const [imgPerspective, setImgPerspective] = useState(creatineImg);
   const [section, setSection] = useState("desc");
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  const handleImgChange = (img) => {
+    if (!isAnimating) {
+      setImgPerspective(img);
+    }
+
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 700);
+  };
 
   return (
     <>
@@ -19,7 +31,9 @@ const CreatinePage = () => {
                 <div className="lg:order-2">
                   <div className="max-w-xl  overflow-hidden rounded-lg">
                     <img
-                      className="h-full w-full max-w-full object-cover"
+                      className={
+                        isAnimating ? "product-img-animation" : "product-img"
+                      }
                       src={imgPerspective}
                       alt="Legal Limit Labs Micronized Creatine Monohydrate is ourraw, unflavored creatine monohydrate formula."
                     />
@@ -36,7 +50,7 @@ const CreatinePage = () => {
                           : "mb-3 aspect-square h-20 overflow-hidden rounded-lg text-center"
                       }
                       onClick={() => {
-                        setImgPerspective(creatineImg);
+                        handleImgChange(creatineImg);
                       }}
                     >
                       <img
@@ -53,8 +67,7 @@ const CreatinePage = () => {
                           : "mb-3 aspect-square h-20 overflow-hidden rounded-lg text-center"
                       }
                       onClick={() => {
-                        console.log(imgPerspective);
-                        setImgPerspective(creatineSiteImg);
+                        handleImgChange(creatineSiteImg);
                       }}
                     >
                       <img
@@ -71,7 +84,7 @@ const CreatinePage = () => {
                           : "mb-3 aspect-square h-20 overflow-hidden rounded-lg text-center"
                       }
                       onClick={() => {
-                        setImgPerspective(creatineLabelImg);
+                        handleImgChange(creatineLabelImg);
                       }}
                     >
                       <img

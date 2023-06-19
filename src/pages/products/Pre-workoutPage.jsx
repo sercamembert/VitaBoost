@@ -17,10 +17,22 @@ const PreWorkoutPage = () => {
   const [imgPerspective, setImgPerspective] = useState(
     flavour == "rasp" ? preWorkoutImg : preWorkoutPinkImg
   );
+  const [isAnimating, setIsAnimating] = useState(true);
   useEffect(() => {
     setImgPerspective(flavour === "rasp" ? preWorkoutImg : preWorkoutPinkImg);
   }, [flavour]);
   const [section, setSection] = useState("desc");
+
+  const handleImgChange = (raspImg, pinkImg) => {
+    if (!isAnimating) {
+      setImgPerspective(flavour == "rasp" ? raspImg : pinkImg);
+    }
+
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 700);
+  };
 
   return (
     <>
@@ -32,9 +44,11 @@ const PreWorkoutPage = () => {
                 <div className="lg:order-2">
                   <div className="max-w-xl  overflow-hidden rounded-lg">
                     <img
-                      className="h-full w-full max-w-full object-cover"
+                      className={
+                        isAnimating ? "product-img-animation" : "product-img"
+                      }
                       src={imgPerspective}
-                      alt=""
+                      alt="VitaBoost Pre-Workout Energy Boost"
                     />
                   </div>
                 </div>
@@ -50,9 +64,7 @@ const PreWorkoutPage = () => {
                           : "mb-3 aspect-square h-20 overflow-hidden rounded-lg text-center"
                       }
                       onClick={() => {
-                        setImgPerspective(
-                          flavour == "rasp" ? preWorkoutImg : preWorkoutPinkImg
-                        );
+                        handleImgChange(preWorkoutImg, preWorkoutPinkImg);
                       }}
                     >
                       <img
@@ -60,7 +72,7 @@ const PreWorkoutPage = () => {
                         src={
                           flavour == "rasp" ? preWorkoutImg : preWorkoutPinkImg
                         }
-                        alt=""
+                        alt="Enjoy gains with VitaBoost Pre-Wokout"
                       />
                     </button>
                     <button
@@ -72,11 +84,9 @@ const PreWorkoutPage = () => {
                           : "mb-3 aspect-square h-20 overflow-hidden rounded-lg text-center"
                       }
                       onClick={() => {
-                        console.log(imgPerspective);
-                        setImgPerspective(
-                          flavour == "rasp"
-                            ? preWorkoutSiteImg
-                            : preWorkoutPinkSiteImg
+                        handleImgChange(
+                          preWorkoutSiteImg,
+                          preWorkoutPinkSiteImg
                         );
                       }}
                     >
@@ -87,7 +97,7 @@ const PreWorkoutPage = () => {
                             ? preWorkoutSiteImg
                             : preWorkoutPinkSiteImg
                         }
-                        alt=""
+                        alt="Enjoy gains with VitaBoost Pre-Wokout"
                       />
                     </button>
                     <button
@@ -99,10 +109,9 @@ const PreWorkoutPage = () => {
                           : "mb-3 aspect-square h-20 overflow-hidden rounded-lg text-center"
                       }
                       onClick={() => {
-                        setImgPerspective(
-                          flavour == "rasp"
-                            ? preWorkoutLabelImg
-                            : preWorkoutPinkLabelImg
+                        handleImgChange(
+                          preWorkoutLabelImg,
+                          preWorkoutPinkLabelImg
                         );
                       }}
                     >
@@ -113,7 +122,7 @@ const PreWorkoutPage = () => {
                             ? preWorkoutLabelImg
                             : preWorkoutPinkLabelImg
                         }
-                        alt=""
+                        alt="Enjoy gains with VitaBoost Pre-Wokout"
                       />
                     </button>
                   </div>
@@ -122,7 +131,13 @@ const PreWorkoutPage = () => {
             </div>
 
             <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-              <h1 className="text-stroke font-special text-4xl text-yellow lg:text-5xl">
+              <h1
+                className={
+                  flavour === "rasp"
+                    ? "text-stroke font-special text-4xl text-primary lg:text-5xl"
+                    : "text-stroke font-special text-4xl text-fuchsia-400 lg:text-5xl"
+                }
+              >
                 Pre-Workout
               </h1>
 
@@ -359,7 +374,11 @@ const PreWorkoutPage = () => {
                   </p>
                   <br />
                   <br />
-                  <img src={nutritionImg} alt="" className="w-full 2xl:w-1/3" />
+                  <img
+                    src={nutritionImg}
+                    alt="nutrition info"
+                    className="w-full 2xl:w-1/3"
+                  />
                   <p>
                     These ingredients work in harmony to provide you with an
                     optimal pre-workout experience, igniting your energy levels,
