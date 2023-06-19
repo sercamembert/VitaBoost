@@ -10,6 +10,15 @@
     @apply fixed -right-full z-40 h-screen w-screen animate-[sidebarClose_0.2s_ease-in-out] bg-white dark:bg-dark md:w-96;
   }
 }
+@layer cart {
+  .cart {
+    @apply fixed inset-y-0 right-0 z-40 flex h-screen w-screen max-w-full animate-[sidebar_0.2s_ease-in-out] bg-white font-primary dark:bg-dark md:w-1/2 2xl:w-1/3;
+  }
+  .cart-close {
+    @apply fixed inset-y-0 -right-full z-40 flex h-screen w-screen max-w-full animate-[sidebarClose_0.2s_ease-in-out] bg-white font-primary dark:bg-dark md:w-1/2 2xl:w-1/3;
+  }
+  2xl: w-1/3;
+}
 
 @layer text-stroke {
   .text-stroke {

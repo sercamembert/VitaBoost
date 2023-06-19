@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../logo/Logo";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -12,24 +12,44 @@ import Hamburger from "hamburger-react";
 import { useContext } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import Switcher from "../../events/Switcher";
+import Cart from "../cart/Cart";
+import { CartContext } from "../../contexts/CartContext";
 
 const Header = () => {
   const { isBlackVisible, setIsBlackVisible } = useContext(SidebarContext);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const { isCartVisible, setIsCartVisible, cartItems } =
+    useContext(CartContext);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
 
   const handleToggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);
-    setIsHamburgerOpen(!isHamburgerOpen);
-    if (isBlackVisible) {
-      // setTimeout(() => {
-      setIsBlackVisible(false);
-      // }, 200);
+    if (isCartVisible) {
+      setIsCartVisible(false);
+      setIsHamburgerOpen(!isHamburgerOpen);
+      if (isBlackVisible) {
+        setIsBlackVisible(false);
+      } else {
+        setIsBlackVisible(true);
+      }
     } else {
-      setIsBlackVisible(true);
+      setIsSidebarVisible(!isSidebarVisible);
+      setIsHamburgerOpen(!isHamburgerOpen);
+      if (isBlackVisible) {
+        setIsBlackVisible(false);
+      } else {
+        setIsBlackVisible(true);
+      }
+    }
+  };
+  const handleToggleCart = () => {
+    setIsCartVisible(!isCartVisible);
+    setIsHamburgerOpen(!isHamburgerOpen);
+    if (isSidebarVisible) {
+      setIsSidebarVisible(false);
+      setIsBlackVisible(false);
+    } else {
+      setIsBlackVisible(!isBlackVisible);
     }
   };
 
@@ -52,6 +72,13 @@ const Header = () => {
   const handlePageClick = () => {
     if (isSidebarVisible) {
       setIsSidebarVisible(false);
+      setTimeout(() => {
+        setIsBlackVisible(false);
+      }, 200);
+      setIsHamburgerOpen(false);
+    }
+    if (isCartVisible) {
+      setIsCartVisible(false);
       setTimeout(() => {
         setIsBlackVisible(false);
       }, 200);
@@ -81,9 +108,11 @@ const Header = () => {
       >
         <HeaderIcons
           onToggleSidebar={handleToggleSidebar}
+          onToggleCart={handleToggleCart}
           isHamburgerOpen={isHamburgerOpen}
           setIsHamburgerOpen={setIsHamburgerOpen}
           isScrolled={isScrolled}
+          cartItems={cartItems}
         />
       </div>
       {isBlackVisible && <BlackOverlay handlePageClick={handlePageClick} />}
@@ -91,6 +120,11 @@ const Header = () => {
       <Sidebar
         isVisible={isSidebarVisible}
         onToggleSidebar={handleToggleSidebar}
+      />
+      <Cart
+        isVisible={isCartVisible}
+        handleClose={handleToggleSidebar}
+        handleOpen={handleToggleCart}
       />
     </header>
   );
@@ -110,9 +144,14 @@ const HeaderIcons = ({
   isHamburgerOpen,
   setIsHamburgerOpen,
   isScrolled,
+  onToggleCart,
+  cartItems,
 }) => {
   const handleClickMenu = () => {
     onToggleSidebar();
+  };
+  const handleClickCart = () => {
+    onToggleCart();
   };
 
   return (
@@ -125,10 +164,11 @@ const HeaderIcons = ({
         }
       >
         <Badge
-          badgeContent={1}
+          badgeContent={cartItems.length}
           color="error"
           className="hover:cursor-pointer dark:text-white"
           tabIndex="0"
+          onClick={handleClickCart}
         >
           <ShoppingBagOutlinedIcon sx={{ fontSize: 34 }} />
         </Badge>

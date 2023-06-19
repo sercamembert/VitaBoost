@@ -12,6 +12,7 @@ import Header from "../src/components/navigation/Header";
 import Footer from "../src/components/footer/Footer";
 import ContactPage from "../src/pages/ContactPage";
 import { SidebarProvider } from "./contexts/SidebarContext";
+import { CartProvider } from "./contexts/CartContext";
 import Login from "./pages/user/Login";
 import Signup from "./pages/user/Signup";
 
@@ -97,7 +98,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <SidebarProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </SidebarProvider>
   </React.StrictMode>
 );

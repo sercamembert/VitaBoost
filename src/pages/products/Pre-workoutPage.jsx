@@ -10,7 +10,8 @@ import preWorkoutPinkSiteImg from "../../img/products/pre-workout/pink-fruit/pre
 
 import nutritionImg from "../../img/nutrition-information/nutrition-information.png";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 const PreWorkoutPage = () => {
   const [flavour, setflavour] = useState("rasp");
@@ -18,6 +19,9 @@ const PreWorkoutPage = () => {
     flavour == "rasp" ? preWorkoutImg : preWorkoutPinkImg
   );
   const [isAnimating, setIsAnimating] = useState(true);
+
+  const { handleAddToCart } = useContext(CartContext);
+
   useEffect(() => {
     setImgPerspective(flavour === "rasp" ? preWorkoutImg : preWorkoutPinkImg);
   }, [flavour]);
@@ -246,6 +250,17 @@ const PreWorkoutPage = () => {
                 <button
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary"
+                  onClick={() => {
+                    handleAddToCart({
+                      name: "Pre-Workout",
+                      price: "19.99$",
+                      flavour: flavour === "rasp" ? "Raspberry" : "Pink fruit",
+                      qty: 1,
+                      img:
+                        flavour === "rasp" ? preWorkoutImg : preWorkoutPinkImg,
+                      link: "/pre-workout",
+                    });
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
