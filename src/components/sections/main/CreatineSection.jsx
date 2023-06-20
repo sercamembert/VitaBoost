@@ -1,5 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import creatineImgSmall from "../../../img/products/creatine/creatine-small.png";
-import creatineImgMedium2 from "../../../img/products/creatine/creatine-medium2.png";
 import DiscoverButton from "../../buttons/DiscoverButton";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -9,7 +9,7 @@ const creatineSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
   return (
     <section className="flex h-auto w-full flex-col lg:items-center xl:h-[650px] xl:flex-row">
-      <div className="flex h-auto w-full items-center justify-center bg-wheyBg pb-12 lg:h-full xl:w-1/2 xl:bg-primary">
+      <div className="flex h-auto w-full items-center justify-center bg-wheyBg pb-12 lg:h-full xl:w-[60%] xl:bg-primary">
         <div
           className={
             isBlackVisible
@@ -39,7 +39,7 @@ const creatineSection = () => {
           </div>
         </div>
       </div>
-      <div className="w-full lg:h-full xl:w-1/2">
+      <div className="w-full lg:h-full xl:w-[40%]">
         <img
           src="https://i.shgcdn.com/b80092dc-b00e-4bf9-a68d-0e29b04488b9/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
           alt=""
