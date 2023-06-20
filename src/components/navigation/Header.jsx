@@ -231,9 +231,6 @@ const HeaderLinks = ({ isScrolled }) => {
 
       <Link
         to="/#products"
-        onClick={() => {
-          window.scrollIntoView({ behavior: "smooth" });
-        }}
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
         tabIndex={3}
       >
