@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+import React from "react";
 import preWorkoutImg from "../../img/products/pre-workout/pre-workout-small.png";
 import proteinImg from "../../img/products/protein/protein-small.png";
-import creatineImg from "../../img/products/creatine/creatine-small.png";
+import creatineImg from "../../img/products/creatine/creatine-large.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
-
-import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 const ProductsSection = () => {
   return (
@@ -20,6 +21,7 @@ const ProductsSection = () => {
         description="Explosive Energy Boost"
         link="/pre-workout"
         img={preWorkoutImg}
+        flavour="Raspberry"
       />
       <Product
         name="Pure Whey"
@@ -27,6 +29,7 @@ const ProductsSection = () => {
         description="Muscle Recovery Fuel"
         link="/protein"
         img={proteinImg}
+        flavour="Strawberry"
       />
       <Product
         name="Creatine"
@@ -34,12 +37,14 @@ const ProductsSection = () => {
         description="Fuel Your Strength Gains"
         link="/creatine"
         img={creatineImg}
+        flavour="Unflavoured"
       />
     </section>
   );
 };
 
-const Product = ({ name, price, description, img, link }) => {
+const Product = ({ name, price, description, img, link, flavour }) => {
+  const { handleAddToCart } = useContext(CartContext);
   return (
     <div className="flex h-auto w-[300px] flex-col items-center justify-center gap-2 rounded-lg p-3 pb-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
       <img src={img} alt={name} />
@@ -49,7 +54,19 @@ const Product = ({ name, price, description, img, link }) => {
       <p className="text-center text-xl font-medium">{description}</p>
       <p className="text-center text-xl font-bold ">{price}</p>
       <div className="mt-2 flex gap-4">
-        <div className=" flex h-[45px] w-[56px] items-center justify-center rounded-lg bg-primary text-white hover:animate-pulse hover:cursor-pointer">
+        <div
+          className=" flex h-[45px] w-[56px] items-center justify-center rounded-lg bg-primary text-white hover:animate-pulse hover:cursor-pointer"
+          onClick={() => {
+            handleAddToCart({
+              name: name,
+              price: price,
+              flavour: flavour,
+              qty: 1,
+              img: img,
+              link: link,
+            });
+          }}
+        >
           <ShoppingCartIcon color="white" />
         </div>
         <Link to={link}>
