@@ -8,18 +8,21 @@ import emptyBagImg from "../../img/cart/empty-cart.jpg";
 
 const Cart = ({ isVisible, handleClose, handleOpen }) => {
   const { cartItems, handleRemoveFromCart } = useContext(CartContext);
-  const [prevCartItems, setPrevCartItems] = useState([]);
+
+  const [prevTotalQty, setPrevTotalQty] = useState(0);
   let totalPrice = 0;
+  let totalQty = 0;
 
   cartItems.map((item, index) => {
     totalPrice += parseFloat(item.price) * item.qty;
+    totalQty += item.qty;
   });
 
   useEffect(() => {
-    if (prevCartItems.length < cartItems.length) {
+    if (prevTotalQty < totalQty) {
       handleOpen();
     }
-    setPrevCartItems(cartItems);
+    setPrevTotalQty(totalQty);
   }, [cartItems]);
 
   return (
