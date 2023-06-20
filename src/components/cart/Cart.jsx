@@ -100,9 +100,9 @@ const CartItems = ({ cartItems, handleRemoveFromCart, handleClose }) => {
   );
 };
 
-const CartEmpty = () => {
+export const CartEmpty = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex w-full flex-col items-center justify-center">
       <img src={emptyBagImg} alt="Your cart is empty" />
       <p className="text-center text-2xl font-medium">Your cart is empty</p>
     </div>

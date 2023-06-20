@@ -20,18 +20,34 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(updatedItems));
   };
 
+  const handleUpdateCartItemQty = (product, qty) => {
+    const updatedCartItems = cartItems.map((item) => {
+      if (item.name === product.name && item.flavour === product.flavour) {
+        return { ...item, qty: qty };
+      }
+      return item;
+    });
+    updateCartItems(updatedCartItems);
+  };
+
   const handleAddToCart = (product) => {
     const existingItem = cartItems.find(
       (item) => item.name === product.name && item.flavour === product.flavour
     );
     if (existingItem) {
-      const updatedCartItems = cartItems.map((item) => {
-        if (item.name === product.name && item.flavour === product.flavour) {
-          return { ...item, qty: item.qty + 1 };
-        }
-        return item;
-      });
-      updateCartItems(updatedCartItems);
+      if (existingItem.qty < 5) {
+        const updatedCartItems = cartItems.map((item) => {
+          if (
+            item.name === product.name &&
+            item.flavour === product.flavour &&
+            item.qty < 5
+          ) {
+            return { ...item, qty: item.qty + 1 };
+          }
+          return item;
+        });
+        updateCartItems(updatedCartItems);
+      }
     } else {
       const updatedCartItems = [...cartItems, { ...product, qty: 1 }];
       updateCartItems(updatedCartItems);
@@ -54,6 +70,7 @@ export const CartProvider = ({ children }) => {
         setCartItems: updateCartItems,
         handleAddToCart,
         handleRemoveFromCart,
+        handleUpdateCartItemQty,
       }}
     >
       {children}
