@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
 import proteinImg from "../../img/products/protein/protein-large.png";
 import proteinLabelImg from "../../img/products/protein/details/protein-label.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 const ProteinPage = () => {
   const [imgPerspective, setImgPerspective] = useState(proteinImg);
   const [section, setSection] = useState("desc");
+
+  const { handleAddToCart } = useContext(CartContext);
 
   return (
     <>
@@ -156,6 +159,16 @@ const ProteinPage = () => {
                 <button
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary"
+                  onClick={() => {
+                    handleAddToCart({
+                      name: "Pure Whey",
+                      price: "24.99$",
+                      flavour: "Strawberry",
+                      qty: 1,
+                      img: proteinImg,
+                      link: "/protein",
+                    });
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

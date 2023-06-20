@@ -3,12 +3,14 @@ import creatineImg from "../../img/products/creatine/creatine-large.png";
 import creatineLabelImg from "../../img/products/creatine/details/creatine-label.png";
 import creatineSiteImg from "../../img/products/creatine/details/creatine-site.png";
 import nutritionImg from "../../img/nutrition-information/creatine-information.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 const CreatinePage = () => {
   const [imgPerspective, setImgPerspective] = useState(creatineImg);
   const [section, setSection] = useState("desc");
   const [isAnimating, setIsAnimating] = useState(true);
+  const { handleAddToCart } = useContext(CartContext);
 
   const handleImgChange = (img) => {
     if (!isAnimating) {
@@ -189,6 +191,16 @@ const CreatinePage = () => {
                 <button
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary"
+                  onClick={() => {
+                    handleAddToCart({
+                      name: "Creatine",
+                      price: "29.99$",
+                      flavour: "Unflavoured",
+                      qty: 1,
+                      img: creatineImg,
+                      link: "/creatine",
+                    });
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
