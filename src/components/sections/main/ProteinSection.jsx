@@ -2,13 +2,35 @@ import proteinImgSmall from "../../../img/products/protein/protein-small.png";
 import proteinImgMedium2 from "../../../img/products/protein/protein-medium2.png";
 import DiscoverButton from "../../buttons/DiscoverButton";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../../contexts/SidebarContext";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
 const ProteinSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
+  const [sectionInView, setSectionInView] = useState(false);
+  const [ref, inView] = useInView(); // Usunięcie triggerOnce: true
+
+  const animationProps = useSpring({
+    opacity: sectionInView ? 1 : 0,
+    transform: sectionInView ? "translateX(0%)" : "translateX(-100%)",
+    config: { duration: 1000 },
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setSectionInView(true);
+    } else {
+      setSectionInView(false);
+    }
+  }, [inView]);
   return (
-    <section className="flex h-auto w-full flex-col lg:items-center xl:h-[650px] xl:flex-row">
+    <animated.div
+      className="flex h-auto w-full flex-col lg:items-center xl:h-[650px] xl:flex-row"
+      ref={ref}
+      style={animationProps}
+    >
       <div className=" hidden w-full lg:h-full xl:block xl:w-1/2">
         <img
           src="https://i.shgcdn.com/c5551027-e3a2-4ab5-bde3-1588188e2680/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
@@ -46,7 +68,7 @@ const ProteinSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </animated.div>
   );
 };
 

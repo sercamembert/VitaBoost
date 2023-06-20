@@ -9,7 +9,7 @@ import Team from "../components/sections/Team";
 
 const LandingPage = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-20 overflow-hidden">
       <PreWorkoutSection />
       <AboutSection />
       <InvestSection />

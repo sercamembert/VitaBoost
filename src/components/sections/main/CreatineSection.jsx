@@ -2,13 +2,35 @@
 import creatineImgSmall from "../../../img/products/creatine/creatine-small.png";
 import DiscoverButton from "../../buttons/DiscoverButton";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { SidebarContext } from "../../../contexts/SidebarContext";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
 const creatineSection = () => {
   const { isBlackVisible } = useContext(SidebarContext);
+  const [sectionInView, setSectionInView] = useState(false);
+  const [ref, inView] = useInView(); // Usunięcie triggerOnce: true
+
+  const animationProps = useSpring({
+    opacity: sectionInView ? 1 : 0,
+    transform: sectionInView ? "translateX(0%)" : "translateX(100%)",
+    config: { duration: 1000 },
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setSectionInView(true);
+    } else {
+      setSectionInView(false);
+    }
+  }, [inView]);
   return (
-    <section className="flex h-auto w-full flex-col lg:items-center xl:h-[650px] xl:flex-row">
+    <animated.div
+      className="relative flex h-auto w-full flex-col lg:items-center xl:h-[650px] xl:flex-row"
+      ref={ref}
+      style={animationProps}
+    >
       <div className="flex h-auto w-full items-center justify-center bg-wheyBg pb-12 lg:h-full xl:w-[60%] xl:bg-primary">
         <div
           className={
@@ -46,7 +68,7 @@ const creatineSection = () => {
           className="h-full w-full"
         />
       </div>
-    </section>
+    </animated.div>
   );
 };
 

@@ -95,7 +95,7 @@ const Header = () => {
             : "flex h-full w-1/2 animate-[headerAnimation_0.7s_ease-in-out] items-center bg-gray-100 pl-4 dark:bg-dark md:pl-16"
         }
       >
-        <Link to="/">
+        <Link to="/" tabIndex={1}>
           <Logo />
         </Link>
       </div>
@@ -167,7 +167,7 @@ const HeaderIcons = ({
           badgeContent={cartItems.length}
           color="error"
           className="hover:cursor-pointer dark:text-white"
-          tabIndex="0"
+          tabIndex={5}
           onClick={handleClickCart}
         >
           <ShoppingBagOutlinedIcon sx={{ fontSize: 34 }} />
@@ -184,7 +184,7 @@ const HeaderIcons = ({
           <PersonOutlineOutlinedIcon
             sx={{ fontSize: 38 }}
             className="hover:cursor-pointer dark:text-white"
-            tabIndex="0"
+            tabIndex={-1}
           />
         </Link>
       </div>
@@ -195,12 +195,12 @@ const HeaderIcons = ({
             : "flex animate-[headerAnimation_0.7s_ease-in-out] items-center"
         }
       >
-        <Switcher />
+        <Switcher tabIndex={0} />
       </div>
       <div
         className="z-50 ml-2 rounded-md bg-green p-1 hover:cursor-pointer"
         onClick={handleClickMenu}
-        tabIndex="0"
+        tabIndex={0}
       >
         <Hamburger
           size={30}
@@ -224,7 +224,7 @@ const HeaderLinks = ({ isScrolled }) => {
       <Link
         to="/"
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
-        tabIndex="0"
+        tabIndex={2}
       >
         home
       </Link>
@@ -235,14 +235,14 @@ const HeaderLinks = ({ isScrolled }) => {
           window.scrollIntoView({ behavior: "smooth" });
         }}
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
-        tabIndex="0"
+        tabIndex={3}
       >
         products
       </Link>
       <Link
         to="/contact"
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
-        tabIndex="0"
+        tabIndex={4}
       >
         contact
       </Link>

@@ -1,15 +1,35 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import manImgMedium from "../../../img/man/man-medium.png";
+import React, { useEffect, useState } from "react";
+import { useSpring, animated } from "react-spring";
 import manImgLarge from "../../../img/man/man-large.png";
 import ButtonBlue from "../../buttons/ButtonBlue";
 import vitaminImg from "../../../img/vitamins-icon/vitamins-icon.png";
 import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 
 const InvestSection = () => {
+  const [sectionInView, setSectionInView] = useState(false);
+  const [ref, inView] = useInView(); // Usunięcie triggerOnce: true
+
+  const animationProps = useSpring({
+    opacity: sectionInView ? 1 : 0,
+    transform: sectionInView ? "translateY(0%)" : "translateY(-50%)",
+    config: { duration: 1000 },
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setSectionInView(true);
+    } else {
+      setSectionInView(false);
+    }
+  }, [inView]);
   return (
-    <section className="flex h-auto flex-col lg:flex-row ">
-      <div className="flex h-full w-auto flex-col items-center justify-center gap-4 bg-green p-6 py-24 lg:h-[500px] lg:w-1/2 xl:h-[600px] 2xl:h-[650px] ">
+    <animated.div
+      className="flex h-auto flex-col lg:flex-row"
+      ref={ref}
+      style={animationProps}
+    >
+      <div className="flex h-full w-auto flex-col items-center justify-center gap-4 bg-green p-6 py-24 lg:h-[500px] lg:w-1/2 xl:h-[600px] 2xl:h-[650px]">
         <h1 className="text-4xl font-bold text-invest md:w-[70%] lg:text-left xl:w-[500px]">
           Invest in Your Health with VitaBoost
         </h1>
@@ -32,14 +52,14 @@ const InvestSection = () => {
       </div>
       <picture className="hidden w-auto lg:block lg:w-1/2">
         <source srcSet={manImgLarge} media="(min-width: 1536px)" />
-        <img
+        <animated.img
           src={manImgLarge}
           alt="Become Healthy with VitaBoost supplements"
           draggable="false"
           className="h-full w-full object-cover"
         />
       </picture>
-    </section>
+    </animated.div>
   );
 };
 

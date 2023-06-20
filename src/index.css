@@ -17,7 +17,6 @@
   .cart-close {
     @apply fixed inset-y-0 -right-full z-40 flex h-screen w-screen max-w-full animate-[sidebarClose_0.2s_ease-in-out] bg-white font-primary dark:bg-dark md:w-1/2 2xl:w-1/3;
   }
-  2xl: w-1/3;
 }
 
 @layer text-stroke {
