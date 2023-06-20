@@ -5,6 +5,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
 import { useEffect, useState } from "react";
 import emptyBagImg from "../../img/cart/empty-cart.jpg";
+import { Link } from "react-router-dom";
 
 const Cart = ({ isVisible, handleClose, handleOpen }) => {
   const { cartItems, handleRemoveFromCart } = useContext(CartContext);
@@ -35,6 +36,7 @@ const Cart = ({ isVisible, handleClose, handleOpen }) => {
                 <CartItems
                   cartItems={cartItems}
                   handleRemoveFromCart={handleRemoveFromCart}
+                  handleClose={handleClose}
                 />
               ) : (
                 <CartEmpty />
@@ -49,7 +51,7 @@ const Cart = ({ isVisible, handleClose, handleOpen }) => {
   );
 };
 
-const CartItems = ({ cartItems, handleRemoveFromCart }) => {
+const CartItems = ({ cartItems, handleRemoveFromCart, handleClose }) => {
   return (
     <ul role="list" className="-my-6 divide-y divide-gray-200">
       {cartItems.map((item, index) => (
@@ -66,7 +68,9 @@ const CartItems = ({ cartItems, handleRemoveFromCart }) => {
             <div>
               <div className="flex justify-between text-base font-medium text-gray-900 dark:text-white">
                 <h3>
-                  <a href={item.link}>{item.name}</a>
+                  <Link to={item.link} onClick={handleClose}>
+                    {item.name}
+                  </Link>
                 </h3>
                 <p className="ml-4">
                   {(parseFloat(item.price) * item.qty).toFixed(2)}$
@@ -116,12 +120,13 @@ const TotalPrice = ({ totalPrice, handleClose }) => {
         Shipping and taxes calculated at checkout.
       </p>
       <div className="mt-6">
-        <a
-          href="#"
+        <Link
+          to="/cart"
           className="flex items-center justify-center rounded-md border border-transparent bg-primary px-6 py-3 text-base font-medium text-white shadow-sm duration-200 ease-in-out hover:animate-pulse hover:bg-indigo-700"
+          onClick={handleClose}
         >
           Checkout
-        </a>
+        </Link>
       </div>
       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
         <p>
