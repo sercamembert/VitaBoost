@@ -1,7 +1,6 @@
 import React from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
-import { useEffect, useState } from "react";
 import emptyBagImg from "../../img/cart/empty-cart.jpg";
 import { Link } from "react-router-dom";
 

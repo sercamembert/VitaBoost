@@ -4,22 +4,19 @@ import proteinImg from "../../img/products/protein/protein-small.png";
 import creatineImg from "../../img/products/creatine/creatine-large.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import { SidebarContext } from "../../contexts/SidebarContext";
 
 const ProductsSection = () => {
-  const sectionRef = useRef(null);
   const [sectionInView, setSectionInView] = useState(false);
   const [ref, inView] = useInView();
-  const [animationCount, setAnimationCount] = useState(0);
 
   useEffect(() => {
     if (inView) {
       setSectionInView(true);
-      setAnimationCount((prevCount) => prevCount + 1);
     } else {
       setSectionInView(false);
     }

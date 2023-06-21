@@ -1,17 +1,9 @@
 import React from "react";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import emptyBagImg from "../img/cart/empty-cart.jpg";
 import { CartEmpty } from "../components/cart/Cart";
-import creatineImg from "../img/products/creatine/creatine-large.png";
-import ButtonBlue from "../components/buttons/ButtonBlue";
 import CloseIcon from "@mui/icons-material/Close";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const CartPage = () => {
