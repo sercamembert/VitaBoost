@@ -1,4 +1,5 @@
 import React from "react";
+import LoginButton from "../../components/buttons/LoginButton";
 
 const Signup = () => {
   return (
@@ -83,12 +84,7 @@ const Signup = () => {
                   </label>
                 </div>
               </div>
-              <button
-                type="submit"
-                className="w-full rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4"
-              >
-                Create an account
-              </button>
+              <LoginButton text="Create an accout" />
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
                 <a

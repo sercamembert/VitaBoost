@@ -1,5 +1,5 @@
 import React from "react";
-
+import LoginButton from "../../components/buttons/LoginButton";
 const Login = () => {
   return (
     <section className="bg-gray-50 dark:bg-dark">
@@ -69,12 +69,7 @@ const Login = () => {
                   Forgot password?
                 </a>
               </div>
-              <button
-                type="submit"
-                className="w-full rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-medium text-white"
-              >
-                Sign in
-              </button>
+              <LoginButton text="Sign In" />
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?{" "}
                 <a
