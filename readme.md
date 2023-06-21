@@ -10,4 +10,4 @@ Welcome to the Vitaboost Supplements website! Please note that Vitaboost is a fi
 
 ### Begin your journey towards better health with Vitaboost Supplements!
 
-Link to website: www.vitaboost.com
+Link to website: https://vitaboost.netlify.app/
