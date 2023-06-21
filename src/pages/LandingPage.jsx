@@ -14,36 +14,24 @@ const LandingPage = () => {
 
   useEffect(() => {
     if (location.hash === "#products") {
-      // Scroll to ProductsSection when URL path is "/#products"
-      console.log("dwawdadwa");
       const productsSection = document.getElementById("products");
       if (productsSection) {
         productsSection.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [location]);
 
-  useEffect(() => {
-    const handleHashChange = () => {
-      if (location.hash === "#products") {
-        const productsSection = document.getElementById("products");
-        if (productsSection) {
-          productsSection.scrollIntoView({ behavior: "smooth" });
-        }
+    if (location.hash === "#about") {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth" });
       }
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
+    }
+  }, [location]);
 
   return (
     <div className="mt-20 overflow-hidden">
       <PreWorkoutSection />
-      <AboutSection />
+      <AboutSection id="about" />
       <InvestSection />
       <ProteinSection />
       <CreatineSection />

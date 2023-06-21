@@ -212,11 +212,11 @@ const HeaderLinks = ({ isScrolled }) => {
         products
       </Link>
       <Link
-        to="/contact"
+        to="/#about"
         className="uppercase duration-300 ease-in-out hover:scale-110 hover:text-tiffany dark:text-white dark:hover:text-tiffany"
         tabIndex={4}
       >
-        contact
+        about us
       </Link>
     </div>
   );

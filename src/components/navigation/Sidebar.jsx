@@ -21,6 +21,14 @@ const Sidebar = ({ isVisible, onToggleSidebar }) => {
           home
         </Link>
         <Link
+          to="/#about"
+          onClick={handleClickMenu}
+          className="text-stroke w-full p-3 text-center font-special text-[39px] uppercase text-tiffanyBlur duration-100 ease-out hover:cursor-pointer hover:bg-sky-400"
+        >
+          about us
+        </Link>
+
+        <Link
           to="/contact"
           onClick={handleClickMenu}
           className="text-stroke w-full p-3 text-center font-special text-[39px] uppercase text-tiffanyBlur duration-100 ease-out hover:cursor-pointer hover:bg-sky-400"

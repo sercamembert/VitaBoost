@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
@@ -28,6 +29,7 @@ const AboutSection = () => {
     <div
       ref={sectionRef}
       className="flex h-auto flex-col items-center justify-center gap-4 p-6 py-24 lg:h-screen lg:flex-row lg:gap-16"
+      id="about"
     >
       <animated.div
         ref={ref}
