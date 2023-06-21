@@ -1,3 +1,4 @@
+import creatineImg from "../../img/products/creatine/creatine-large.png";
 import creatineLabelImg from "../../img/products/creatine/details/creatine-label.png";
 import creatineSiteImg from "../../img/products/creatine/details/creatine-site.png";
 import nutritionImg from "../../img/nutrition-information/creatine-information.png";

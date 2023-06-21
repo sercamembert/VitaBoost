@@ -1,3 +1,4 @@
+import preWorkoutImg from "../../img/products/pre-workout/pre-workout-large.png";
 import preWorkoutLabelImg from "../../img/products/pre-workout/details/pre-workout-label.png";
 import preWorkoutSiteImg from "../../img/products/pre-workout/details/pre-workout-site.png";
 
