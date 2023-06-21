@@ -34,7 +34,7 @@ const CartPage = () => {
         </h1>
         <div className="flex w-full flex-col gap-x-6 lg:flex-row">
           {!cartItems.length > 0 ? (
-            <div className="flex w-full flex-col lg:w-[60%]">
+            <div className="flex w-full items-center justify-center">
               <CartEmpty />
             </div>
           ) : (
@@ -88,36 +88,37 @@ const CartPage = () => {
               ))}
             </div>
           )}
-
-          <div className="flex w-full flex-col gap-4 p-2 lg:w-[40%]">
-            <h1 className="w-full text-left text-xl font-semibold">
-              Order summary
-            </h1>
-            <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
-              <p>Subtotal</p>
-              <p>{parseFloat(totalPrice).toFixed(2)}$</p>
+          {cartItems.length > 0 && (
+            <div className="flex w-full flex-col gap-4 p-2 lg:w-[40%]">
+              <h1 className="w-full text-left text-xl font-semibold">
+                Order summary
+              </h1>
+              <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
+                <p>Subtotal</p>
+                <p>{parseFloat(totalPrice).toFixed(2)}$</p>
+              </div>
+              <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
+                <p>Shipping</p>
+                <p>{shippingPrice}$</p>
+              </div>
+              <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
+                <p>Tax estimate</p>
+                <p>{(totalPrice * 0.11).toFixed(2)}$</p>
+              </div>
+              <div className="flex w-full justify-between font-bold">
+                <p>Order total</p>
+                <p>
+                  {parseFloat(
+                    totalPrice + shippingPrice + totalPrice * 0.11
+                  ).toFixed(2)}
+                  $
+                </p>
+              </div>
+              <button className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary">
+                Order Now
+              </button>
             </div>
-            <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
-              <p>Shipping</p>
-              <p>{shippingPrice}$</p>
-            </div>
-            <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
-              <p>Tax estimate</p>
-              <p>{(totalPrice * 0.11).toFixed(2)}$</p>
-            </div>
-            <div className="flex w-full justify-between font-bold">
-              <p>Order total</p>
-              <p>
-                {parseFloat(
-                  totalPrice + shippingPrice + totalPrice * 0.11
-                ).toFixed(2)}
-                $
-              </p>
-            </div>
-            <button className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary">
-              Order Now
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </section>

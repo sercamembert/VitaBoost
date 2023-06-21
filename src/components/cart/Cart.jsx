@@ -28,7 +28,7 @@ const Cart = ({ isVisible, handleClose }) => {
                   handleClose={handleClose}
                 />
               ) : (
-                <CartEmpty />
+                <CartEmpty handleClose={handleClose} />
               )}
             </div>
           </div>
@@ -89,11 +89,19 @@ const CartItems = ({ cartItems, handleRemoveFromCart, handleClose }) => {
   );
 };
 
-export const CartEmpty = () => {
+export const CartEmpty = ({ handleClose }) => {
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <img src={emptyBagImg} alt="Your cart is empty" />
       <p className="text-center text-2xl font-medium">Your cart is empty</p>
+      <Link
+        to="/#products"
+        className=" text-indigo-500 hover:text-indigo-700 "
+        onClick={handleClose}
+      >
+        Discover products
+        <span aria-hidden="true"> &rarr;</span>
+      </Link>
     </div>
   );
 };
