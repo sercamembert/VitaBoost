@@ -97,10 +97,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <SidebarProvider>
-      <CartProvider>
+    <CartProvider>
+      <SidebarProvider>
         <RouterProvider router={router} />
-      </CartProvider>
-    </SidebarProvider>
+      </SidebarProvider>
+    </CartProvider>
   </React.StrictMode>
 );

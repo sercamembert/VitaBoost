@@ -3,12 +3,13 @@ import proteinImg from "../../img/products/protein/protein-large.png";
 import proteinLabelImg from "../../img/products/protein/details/protein-label.png";
 import { useState, useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
-
+import { SidebarContext } from "../../contexts/SidebarContext";
 const ProteinPage = () => {
   const [imgPerspective, setImgPerspective] = useState(proteinImg);
   const [section, setSection] = useState("desc");
 
   const { handleAddToCart } = useContext(CartContext);
+  const { handleToggleCart } = useContext(SidebarContext);
 
   return (
     <>
@@ -160,6 +161,7 @@ const ProteinPage = () => {
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary"
                   onClick={() => {
+                    handleToggleCart();
                     handleAddToCart({
                       name: "Pure Whey",
                       price: "24.99$",

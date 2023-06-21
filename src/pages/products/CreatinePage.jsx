@@ -5,12 +5,14 @@ import creatineSiteImg from "../../img/products/creatine/details/creatine-site.p
 import nutritionImg from "../../img/nutrition-information/creatine-information.png";
 import { useState, useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { SidebarContext } from "../../contexts/SidebarContext";
 
 const CreatinePage = () => {
   const [imgPerspective, setImgPerspective] = useState(creatineImg);
   const [section, setSection] = useState("desc");
   const [isAnimating, setIsAnimating] = useState(true);
   const { handleAddToCart } = useContext(CartContext);
+  const { handleToggleCart } = useContext(SidebarContext);
 
   const handleImgChange = (img) => {
     if (!isAnimating) {
@@ -192,6 +194,7 @@ const CreatinePage = () => {
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary"
                   onClick={() => {
+                    handleToggleCart();
                     handleAddToCart({
                       name: "Creatine",
                       price: "29.99$",

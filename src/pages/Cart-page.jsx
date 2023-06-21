@@ -20,6 +20,7 @@ const CartPage = () => {
     useContext(CartContext);
 
   let totalPrice = 0;
+  let shippingPrice = 5;
 
   cartItems.map((item, index) => {
     totalPrice += parseFloat(item.price) * parseFloat(item.qty);
@@ -74,7 +75,7 @@ const CartPage = () => {
                       }}
                       displayEmpty
                       inputProps={{ "aria-label": "Without label" }}
-                      className=" h-8 w-14"
+                      className=" h-8 w-14 dark:bg-white "
                     >
                       <MenuItem value={1}>1</MenuItem>
                       <MenuItem value={2}>2</MenuItem>
@@ -98,7 +99,7 @@ const CartPage = () => {
             </div>
             <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
               <p>Shipping</p>
-              <p>5$</p>
+              <p>{shippingPrice}$</p>
             </div>
             <div className="flex w-full justify-between border-b border-gray-300 py-2 text-gray-400">
               <p>Tax estimate</p>
@@ -107,7 +108,10 @@ const CartPage = () => {
             <div className="flex w-full justify-between font-bold">
               <p>Order total</p>
               <p>
-                {parseFloat(totalPrice + 5 + totalPrice * 0.11).toFixed(2)}$
+                {parseFloat(
+                  totalPrice + shippingPrice + totalPrice * 0.11
+                ).toFixed(2)}
+                $
               </p>
             </div>
             <button className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary">

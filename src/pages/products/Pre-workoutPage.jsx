@@ -12,6 +12,7 @@ import nutritionImg from "../../img/nutrition-information/nutrition-information.
 
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { SidebarContext } from "../../contexts/SidebarContext";
 
 const PreWorkoutPage = () => {
   const [flavour, setflavour] = useState("rasp");
@@ -21,6 +22,7 @@ const PreWorkoutPage = () => {
   const [isAnimating, setIsAnimating] = useState(true);
 
   const { handleAddToCart } = useContext(CartContext);
+  const { handleToggleCart } = useContext(SidebarContext);
 
   useEffect(() => {
     setImgPerspective(flavour === "rasp" ? preWorkoutImg : preWorkoutPinkImg);
@@ -251,6 +253,7 @@ const PreWorkoutPage = () => {
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-primary bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow dark:hover:animate-pulse dark:hover:bg-primary"
                   onClick={() => {
+                    handleToggleCart();
                     handleAddToCart({
                       name: "Pre-Workout",
                       price: "19.99$",

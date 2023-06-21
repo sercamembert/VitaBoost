@@ -16,42 +16,21 @@ import Cart from "../cart/Cart";
 import { CartContext } from "../../contexts/CartContext";
 
 const Header = () => {
-  const { isBlackVisible, setIsBlackVisible } = useContext(SidebarContext);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const {
+    isBlackVisible,
+    setIsBlackVisible,
+    isSidebarVisible,
+    setIsSidebarVisible,
+    isHamburgerOpen,
+    setIsHamburgerOpen,
+    handleToggleCart,
+    handleToggleSidebar,
+  } = useContext(SidebarContext);
+
   const { isCartVisible, setIsCartVisible, cartItems } =
     useContext(CartContext);
-  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleToggleSidebar = () => {
-    if (isCartVisible) {
-      setIsCartVisible(false);
-      setIsHamburgerOpen(!isHamburgerOpen);
-      if (isBlackVisible) {
-        setIsBlackVisible(false);
-      } else {
-        setIsBlackVisible(true);
-      }
-    } else {
-      setIsSidebarVisible(!isSidebarVisible);
-      setIsHamburgerOpen(!isHamburgerOpen);
-      if (isBlackVisible) {
-        setIsBlackVisible(false);
-      } else {
-        setIsBlackVisible(true);
-      }
-    }
-  };
-  const handleToggleCart = () => {
-    setIsCartVisible(!isCartVisible);
-    setIsHamburgerOpen(!isHamburgerOpen);
-    if (isSidebarVisible) {
-      setIsSidebarVisible(false);
-      setIsBlackVisible(false);
-    } else {
-      setIsBlackVisible(!isBlackVisible);
-    }
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
@@ -121,11 +100,7 @@ const Header = () => {
         isVisible={isSidebarVisible}
         onToggleSidebar={handleToggleSidebar}
       />
-      <Cart
-        isVisible={isCartVisible}
-        handleClose={handleToggleSidebar}
-        handleOpen={handleToggleCart}
-      />
+      <Cart isVisible={isCartVisible} handleClose={handleToggleSidebar} />
     </header>
   );
 };

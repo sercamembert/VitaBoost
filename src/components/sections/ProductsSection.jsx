@@ -10,6 +10,7 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
+import { SidebarContext } from "../../contexts/SidebarContext";
 
 const ProductsSection = () => {
   const sectionRef = useRef(null);
@@ -128,6 +129,7 @@ const ProductsSection = () => {
 
 const Product = ({ name, price, description, img, link, flavour }) => {
   const { handleAddToCart } = useContext(CartContext);
+  const { handleToggleCart } = useContext(SidebarContext);
   return (
     <div className="flex h-auto w-[300px] flex-col items-center justify-center gap-2 rounded-lg p-3 pb-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
       <img src={img} alt={name} />
@@ -141,6 +143,7 @@ const Product = ({ name, price, description, img, link, flavour }) => {
           className=" flex h-[45px] w-[56px] items-center justify-center rounded-lg bg-primary text-white hover:animate-pulse hover:cursor-pointer"
           tabIndex={0}
           onClick={() => {
+            handleToggleCart();
             handleAddToCart({
               name: name,
               price: price,

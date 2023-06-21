@@ -7,24 +7,13 @@ import { useEffect, useState } from "react";
 import emptyBagImg from "../../img/cart/empty-cart.jpg";
 import { Link } from "react-router-dom";
 
-const Cart = ({ isVisible, handleClose, handleOpen }) => {
+const Cart = ({ isVisible, handleClose }) => {
   const { cartItems, handleRemoveFromCart } = useContext(CartContext);
 
-  const [prevTotalQty, setPrevTotalQty] = useState(0);
   let totalPrice = 0;
-  let totalQty = 0;
-
   cartItems.map((item, index) => {
     totalPrice += parseFloat(item.price) * item.qty;
-    totalQty += item.qty;
   });
-
-  useEffect(() => {
-    if (prevTotalQty < totalQty) {
-      handleOpen();
-    }
-    setPrevTotalQty(totalQty);
-  }, [cartItems]);
 
   return (
     <section className={isVisible ? "cart" : "cart-close"}>
