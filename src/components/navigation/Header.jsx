@@ -1,6 +1,3 @@
-/* eslint-disable react/display-name */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../logo/Logo";

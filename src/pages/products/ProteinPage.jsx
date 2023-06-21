@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import proteinImg from "../../img/products/protein/protein-large.png";
 import proteinLabelImg from "../../img/products/protein/details/protein-label.png";
 import { useState, useContext } from "react";

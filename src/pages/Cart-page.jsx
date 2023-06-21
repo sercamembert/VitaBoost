@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";

@@ -2,16 +2,15 @@ import { useRouteError, Link } from "react-router-dom";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
 
   return (
     <>
-      <div className="flex items-center justify-center w-screen h-screen">
+      <div className="flex h-screen w-screen items-center justify-center">
         <div className="px-4 lg:py-12">
-          <div className="lg:gap-4 lg:flex">
+          <div className="lg:flex lg:gap-4">
             <div className="flex flex-col items-center justify-center md:py-24 lg:py-32">
-              <h1 className="font-bold text-blue-600 text-9xl">404</h1>
-              <p className="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
+              <h1 className="text-9xl font-bold text-blue-600">404</h1>
+              <p className="mb-2 text-center text-2xl font-bold text-gray-800 md:text-3xl">
                 <span className="text-red-500">Oops!</span> Page{" "}
                 {error.statusText}
               </p>
@@ -20,7 +19,7 @@ export default function ErrorPage() {
               </p>
               <Link
                 to="/"
-                className="px-5 py-2 rounded-md text-blue-100 bg-blue-600 hover:bg-blue-700"
+                className="rounded-md bg-blue-600 px-5 py-2 text-blue-100 hover:bg-blue-700"
               >
                 Go home
               </Link>
