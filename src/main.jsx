@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "cart",
+    path: "/cart",
     element: (
       <>
         <Header />
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "contact",
+    path: "/contact",
     element: (
       <>
         <Header />
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "creatine",
+    path: "/creatine",
     element: (
       <>
         <Header />
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "protein",
+    path: "/protein",
     element: (
       <>
         <Header />
